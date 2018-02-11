@@ -1,0 +1,191 @@
+{
+	"info": {
+		"name": "contacts directory",
+		"_postman_id": "99bafdf7-7973-7655-3c4b-24810b1870f5",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "20ae70b0-8abf-412b-876e-8a3522461123",
+						"type": "text/javascript",
+						"exec": [
+							"let token = JSON.parse(responseBody).data.token",
+							"",
+							"pm.environment.set(\"TOKEN\", token);",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"compropago\",\n\t\"password\": \"compropago2018\"\n}"
+				},
+				"url": {
+					"raw": "{{API_URL}}/authenticate",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"authenticate"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Contact list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TOKEN}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{API_URL}}/contacts/",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"contacts",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Contact detail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TOKEN}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{API_URL}}/contacts/5a808dd1d38bec2a3822efe3",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"contacts",
+						"5a808dd1d38bec2a3822efe3"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create contact",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TOKEN}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Eric\",\n\t\"lastName\": \"Ocampo\",\n\t\"phone\": \"5587555555\",\n\t\"address\": \"EDO. MEX\",\n\t\"twitter\": \"ocmapogeric\"\n}"
+				},
+				"url": {
+					"raw": "{{API_URL}}/contacts",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"contacts"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Update Contact",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TOKEN}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"lastName\": \"Ocampoo\",\n\t\"phone\": \"5587555555\",\n\t\"facebook\": \"ocampogeric\"\n}"
+				},
+				"url": {
+					"raw": "{{API_URL}}/contacts/5a808dd1d38bec2a3822efe3",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"contacts",
+						"5a808dd1d38bec2a3822efe3"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete contact",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{TOKEN}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{API_URL}}/contacts/5a808e28d38bec2a3822efe5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"contacts",
+						"5a808e28d38bec2a3822efe5"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
