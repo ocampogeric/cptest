@@ -9,24 +9,24 @@ block content
       .row
         .input-field-col.s12
           label(for="name") Name
-          input#name(type="text", required="required", name="name")
+          input#name(type="text", required="required", name="name", maxlength="100")
         .input-field-col.s12
           label(for="lastname") LastName
-          input#lastname(type="text", required="required", name="lastname")
+          input#lastname(type="text", required="required", name="lastname", maxlength="100")
         .input-field-col.s12
           label(for="phone") Phone
-          input#phone(type="tel", required="required", name="phone")
+          input#phone(type="tel", required="required", name="phone", maxlength="10")
         .input-field-col.s12
           label(for="address") Address
-          input#address(type="text", required="required", name="address")
+          input#address(type="text", required="required", name="address", maxlength="250")
         .input-field-col.s12
           label(for="fb") Facebook
-          input#fb(type="text", name="facebook")
+          input#fb(type="text", name="facebook", maxlength="100")
         .input-field-col.s12
           label(for="tw") Twitter
-          input#tw(type="text", name="twitter")
+          input#tw(type="text", name="twitter", maxlength="100")
         .input-field-col.s12
           label(for="gh") GitHub
-          input#gh(type="text", name="github")
+          input#gh(type="text", name="github", maxlength="100")
         .input-field.col.s12
           button.btn.grey.darken-4.waves-effect.waves-light(type="submit") Create
