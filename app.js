@@ -15,10 +15,13 @@ import api from './routes/api'
 
 var FileStore = FileStoreImport(session)
 
-mongoose.connect(db.dbUrl, (err, db) => {
-	if (err)
+mongoose.connect(db.dbUrl, { useMongoClient: true }, (err, db) => {
+	if (err){
 		console.log(err)
-	console.log('connected! :)')
+  } else {
+    console.log('connected! :)')  
+  }
+	
 });
 
 

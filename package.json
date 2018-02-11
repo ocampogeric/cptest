@@ -7,6 +7,7 @@
     "start": "nodemon --watch views --watch routes --exec \"npm run build && node dist/bin/www\" -e pug,js"
   },
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
@@ -14,7 +15,7 @@
     "express-session": "^1.15.6",
     "jsonwebtoken": "^8.1.1",
     "mongodb": "^2.2.34",
-    "mongoose": "^5.0.4",
+    "mongoose": "^4.11.14",
     "morgan": "~1.9.0",
     "pug": "2.0.0-beta11",
     "serve-favicon": "~2.4.5",
