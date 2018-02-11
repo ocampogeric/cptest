@@ -13,14 +13,14 @@ function checkAuth(req, res, next) {
 
 /* GET contact listing. */
 router.get('/',checkAuth, (req, res, next) => {
-	Contact.find({}, (err, contacts) => {
-		res.render('contacts/index', {contacts: contacts})
-	})
+  Contact.find({}, (err, contacts) => {
+    res.render('contacts/index', {contacts: contacts})
+  })
 })
 
 /* GET new contact page. */
 router.get('/new',checkAuth, (req, res, next) => {
-	res.render('contacts/new')
+  res.render('contacts/new')
 })
 
 /* GET edit page*/
@@ -35,22 +35,22 @@ router.get('/edit/:id', checkAuth, (req, res, next) => {
 
 /* POST create new contact*/
 router.post('/create', checkAuth, (req, res, next) => {
-	let contact = new Contact({
-		name: req.body.name,
-		lastName: req.body.lastname,
-		phone: req.body.phone,
-		address: req.body.address,
-		facebook: req.body.facebook,
-		twitter: req.body.twitter,
-		github: req.body.github
-	})
+  let contact = new Contact({
+    name: req.body.name,
+    lastName: req.body.lastname,
+    phone: req.body.phone,
+    address: req.body.address,
+    facebook: req.body.facebook,
+    twitter: req.body.twitter,
+    github: req.body.github
+  })
 
-	contact.save((err) => {
-		if (err) {
-			res.render('contacts/new', {msg: err})
-		}
-		res.redirect('/contacts')
-	})
+  contact.save((err) => {
+    if (err) {
+      res.render('contacts/new', {msg: err})
+    }
+    res.redirect('/contacts')
+  })
 })
 /* POST update contact*/
 router.post('/update', checkAuth, (req, res, next) => {
