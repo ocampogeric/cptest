@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+    link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    script(type='text/javascript' src='https://code.jquery.com/jquery-3.2.1.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js')
+    title Contacts
+  body
+    nav
+      .nav-wrapper.blue
+        a.brand-logo.flow-text.hide-on-small-only(href='/')
+          | Contact directory
+        ul.right
+          if session.isLogin
+            li
+              a(href='/contacts')
+                i.material-icons contacts
+            li
+                span.left-align=session.userName
+            li
+                a.right-align(href='/logout')
+                    i.material-icons power_settings_new
+          else
+            li
+                a(href='/login')
+                    i.material-icons.left person
+                    |login
+    main
+      .container
+        block content 

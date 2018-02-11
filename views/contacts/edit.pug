@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+  if msg != null
+    span.red-text.lighten-1=msg
+  .row
+    form.col.s12.m6.offset-m3(action='/contacts/update', method='POST')
+      h1 New contact
+      .row
+        input(type="hidden", name="id", value=contact.id)
+        .input-field-col.s12
+          label(for="name") Name
+          input#name(type="text", required="required", name="name", value=contact.name)
+        .input-field-col.s12
+          label(for="lastname") LastName
+          input#lastname(type="text", required="required", name="lastname", value=contact.lastName)
+        .input-field-col.s12
+          label(for="phone") Phone
+          input#phone(type="tel", required="required", name="phone", value=contact.phone)
+        .input-field-col.s12
+          label(for="address") Address
+          input#address(type="text", required="required", name="address", value=contact.address)
+        .input-field-col.s12
+          label(for="fb") Facebook
+          input#fb(type="text", name="facebook", value=contact.facebook)
+        .input-field-col.s12
+          label(for="tw") Twitter
+          input#tw(type="text", name="twitter", value=contact.twitter)
+        .input-field-col.s12
+          label(for="gh") GitHub
+          input#gh(type="text", name="github", value=contact.github)
+        .input-field.col.s12
+          button.btn.grey.darken-4.waves-effect.waves-light(type="submit") Save

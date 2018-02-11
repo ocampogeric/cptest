@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  if session.isLogin
+    h1 Contact directory
+    p you can see contact list 
+      a(href="/contacts") here
+  else
+    h1.flow-text Welcome to contact directory
+    p To see contact list please 
+      a(href='/login') logIn. 
+      | :)

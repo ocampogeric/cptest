@@ -1,0 +1,60 @@
+extends ../layout
+
+block content
+  h1 Contact list
+  .col.s12
+    a(href="/contacts/new").btn-floating.btn-large.waves-effect.waves-light.blue.darken-3.right
+      i.material-icons add
+  table.striped
+    thead
+      th Name
+      th Last Name
+      th Phone Number
+      th Address
+      th Social
+      th Actions
+    tbody
+      each contact in contacts
+        tr
+          td= contact.name
+          td= contact.lastName
+          td= contact.phone
+          td= contact.address
+          td
+            ul
+              li= `Facebook: ${contact.facebook}`
+              li= `Twitter: ${contact.twitter}`
+              li= `Github: ${contact.github}`
+          td
+            a(href='/contacts/edit/'+contact.id)
+                        i.material-icons.grey-text.darken-2 edit
+            a(href='#', onclick="confirmDelete('" + contact.id +"')")
+              i.material-icons.grey-text.darken-2 delete
+  #modal.modal
+      .modal-content
+          h4 Delete Contact
+          p ¿Are you sure?
+      .modal-footer
+          a#modal_yes.modal-action.modal-close.waves-effect.waves-green.btn-flat.red.white-text(href='#') Delete
+          a.modal-action.modal-close.waves-effect.waves-green.btn-flat(href='#!') Cancel
+  script.
+    $(function(){
+        $('.modal').modal();
+    });
+    function confirmDelete(id) {
+      $('#modal').modal('open');
+      $('#modal_yes').click(function() {
+          console.log(id);
+          var f = document.createElement("form");
+          f.setAttribute('method',"post");
+          f.setAttribute('action',"/contacts/delete");
+          var i = document.createElement("input"); //input element, text
+          i.setAttribute('type', "hidden");
+          i.setAttribute('name', "id");
+          i.setAttribute('value', id);
+          f.appendChild(i);
+          console.log(f);
+          document.body.appendChild(f);
+          f.submit();
+      });
+    }
