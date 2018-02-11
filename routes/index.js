@@ -25,25 +25,25 @@ router.get('/logout', function(req, res) {
 })
 
 router.post('/login', function(req, res) {
-	let username = req.body.username
-	let password = req.body.password
+  let username = req.body.username
+  let password = req.body.password
 
-	User.findOne({username: username},(err, user) => {
-		if (user) {
-			bcrypt.compare(password, user.password)
-			.then((result) => {
-	    	if (result) {
-	    		req.session.isLogin = true
+  User.findOne({username: username},(err, user) => {
+    if (user) {
+      bcrypt.compare(password, user.password)
+      .then((result) => {
+        if (result) {
+          req.session.isLogin = true
           req.session.userName = user.name
-	    		res.redirect('/')
-	    	} else {
-	    		res.render('login', {msg: 'invalid User or password!'})
-	    	}
-			})
-		} else {
-			res.render('login', {msg: 'invalid User or password!'})
-		}
-	})
+          res.redirect('/')
+        } else {
+          res.render('login', {msg: 'invalid User or password!'})
+        }
+      })
+    } else {
+      res.render('login', {msg: 'invalid User or password!'})
+    }
+  })
 })
 
 module.exports = router
