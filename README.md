@@ -26,15 +26,20 @@ Now start the app with `npm start` and go to `http://localhost:3000`
 Download and install postman from [website](https://www.getpostman.com/)
 
 Import collection file from `postman_files` folder
-![postman1](https://github.com/ocampogeric/cptest/blob/master/postman_files/postman-1.png)
-![alt=postman 2](https://github.com/ocampogeric/cptest/blob/master/postman_files/postman-2.png)
-![alt=postman 3](https://github.com/ocampogeric/cptest/blob/master/postman_files/postman-3.png)
+
+  ![postman1](https://github.com/ocampogeric/cptest/blob/master/postman_files/postman-1.png)
+  ![alt=postman 2](https://github.com/ocampogeric/cptest/blob/master/postman_files/postman-2.png)
+  ![alt=postman 3](https://github.com/ocampogeric/cptest/blob/master/postman_files/postman-3.png)
 
 Import enviroment file from  `postman_files` folder
-![alt=postman 4](https://github.com/ocampogeric/cptest/blob/master/postman_files/postman-4.png)
-![alt=postman 5](https://github.com/ocampogeric/cptest/blob/master/postman_files/postman-5.png)
+
+  ![alt=postman 4](https://github.com/ocampogeric/cptest/blob/master/postman_files/postman-4.png)
+  ![alt=postman 5](https://github.com/ocampogeric/cptest/blob/master/postman_files/postman-5.png)
+
 Browse envirement file and import it. Then select the imported enviroment
-![alt=postman 6](https://github.com/ocampogeric/cptest/blob/master/postman_files/postman-6.png)
+
+  ![alt=postman 6](https://github.com/ocampogeric/cptest/blob/master/postman_files/postman-6.png)
+
 When you request `Authenticate` token will be automatically assigned to enviroment TOKEN variable!
 
 Test it! :grin:
